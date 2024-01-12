@@ -1,0 +1,73 @@
+<!doctype html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>Places Search Box</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.ts"></script>
+    <script type="module" src="./dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div style="display: flex; height: 100%;">
+      <div style=" height: 100vh; background-color: white; position: absolute; z-index: 10000; width: 25%; right: 0px;">
+        <input
+          id="pac-input"
+          class="controls mt-2 rounded p-2"
+          type="text"
+          style="position: absolute;"
+          placeholder="Chercher un endroit..."
+        />
+        <h3 class="p-4">Trajets des camions</h3>
+        <div class="list-group" id="camion-list">
+          <a href="#" id="camion1" class="list-group-item list-group-item-action active" aria-current="true" onclick="showDetails('camion1')">
+              <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Camion 1</h5>
+                  <small>3 days ago</small>
+              </div>
+              <p class="mb-1">Ce camion a parcouru le trajet suivant : 8KM</p>
+              <small>Informations supplementaires sur le camion.</small>
+          </a>
+          <a href="#" id="camion2" class="list-group-item list-group-item-action" onclick="showDetails('camion2')">
+              <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Camion 2</h5>
+                  <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-1">Ce camion a parcouru le trajet suivant : 12KM</p>
+              <small >Informations supplementaires sur le camion.</small>
+          </a>
+          <a href="#" id="camion3" class="list-group-item list-group-item-action" onclick="showDetails('camion3')">
+              <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Camion 3</h5>
+                  <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-1">Ce camion a parcouru le trajet suivant : 23KM</p>
+              <small >Informations supplementaires sur le camion.</small>
+          </a>
+      </div>
+      
+      </div>
+      <div id="map" style="width: 100%;"></div>
+    </div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0Jwpe3-LpnxSi_BkfU1fLrMxK0jFIIMc&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+      ></script>
+      <!-- src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly" -->
+      
+  </body>
+</html>
